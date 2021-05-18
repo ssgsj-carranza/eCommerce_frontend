@@ -1,9 +1,9 @@
 import {loginService} from '../services/Service';
-import form from '../form/Form';
+import UserForm from '../form/Form';
 import {Segment, Button, Label, Form, FormInput} from 'semantic-ui-react';
 
 const LoginScreen = () => {
-    const {formValues, handleChange, handleSubmit} = form(loginUser, {username:'', password:''});
+    const {formValues, handleChange, handleSubmit} = UserForm(loginUser, {username:'', password:''});
     async function loginUser(loginObj) {
         try{
             const response = await loginService(loginObj);

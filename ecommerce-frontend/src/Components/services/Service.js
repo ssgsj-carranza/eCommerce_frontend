@@ -43,3 +43,8 @@ export async function getCurrentUser(){
         console.log("exception", ex);
     }
 }
+
+export async function getInventory(){
+    let response = await axios.get(apiEndpoint + '/inventory');
+    return(response.data)
+}

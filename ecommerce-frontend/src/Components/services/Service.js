@@ -27,3 +27,19 @@ export async function loginService(login){
         throw ex;
     }
 }
+
+export async function getCurrentUser(){
+    try{
+        const jwt = localStorage.getItem('token');
+        const response = await axios.get('https://localhost:44394/api/examples/user', {headers: {Authorization: 'Bearer ' + jwt}});
+        console.log(response.data);
+        
+        if(response.status === 200){
+            return response.data;
+        }
+        return null;
+    }
+    catch(ex){
+        console.log("exception", ex);
+    }
+}

@@ -4,10 +4,16 @@ import { registerService } from '../services/Service'
 // import LoginScreen from '../login_screen/LoginScreen'
 import {Form, Label, Button, FormInput } from 'semantic-ui-react';
 import { RegistrationForm } from '../forms/RegisterUser'
+import { Redirect } from 'react-router';
 
 export const RegisterScreen = () => {
     const [newUser, setNewUser] = RegistrationForm({UserName:'', FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false});
     
+    const registerUser = (newUser) => {
+        registerService(newUser);
+        <Redirect path='/' /> 
+    }
+
     return (
         <Form>
             <Label>
@@ -73,7 +79,7 @@ export const RegisterScreen = () => {
                 />
                 <br />
             </Label>
-            <Button primary color="blue" onClick={async() => registerService(newUser)}>
+            <Button primary color="blue" onClick={async() => registerUser(newUser)}>
                 Register
             </Button>
         </Form>

@@ -5,17 +5,20 @@ class Seller extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user: '',
-            inventory:''
+            user: null,
+            inventory:null
         }
     }
     componentDidMount(){
         let response = getInventory();
         console.log(response);
     }
+    
     render(){
         return(
-            <div></div>
+            <div>
+
+            </div>
         )
     }
 }

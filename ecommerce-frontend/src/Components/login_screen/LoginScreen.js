@@ -25,7 +25,7 @@ const LoginScreen = () => {
             <Form.Input type="text" name='username' onChange={handleChange} value ={formValues.username} required = {true}></Form.Input>
             <Label>Password</Label>
             <FormInput type= 'password' name='password' onChange={handleChange} value={formValues.password} required={true}></FormInput>
-            <Button type='submit'>Submit</Button>
+            <Button color='green' type='submit'>Submit</Button>
             </Form>
         </Segment>
     )

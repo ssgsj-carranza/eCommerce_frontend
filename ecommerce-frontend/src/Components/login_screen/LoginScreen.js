@@ -1,5 +1,5 @@
 import {loginService} from '../services/Service';
-import UserForm from '../form/Form';
+import UserForm from '../forms/Form';
 import {Segment, Button, Label, Form, FormInput} from 'semantic-ui-react';
 
 const LoginScreen = () => {

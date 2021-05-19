@@ -2,18 +2,14 @@ import React, {Component} from 'react';
 import 'semantic-ui-css/semantic.min.css';
 // import Seller from './Components/Seller/Seller';
 import LoginScreen from './Components/login_screen/LoginScreen';
-import RegisterScreen from './Components/register_screen/RegisterScreen';
+import { RegisterScreen } from './Components/register_screen/RegisterScreen';
 import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Components/landing_page/Home';
 import Header from './Components/header/Header';
+import './app.css';
 
-class App extends Component{
-  state = {
-    product: [],
-    user: '',
-  }
-  render(){
+const App = () => {
     return(
       <div className="App">
         <Switch>
@@ -25,7 +21,7 @@ class App extends Component{
         </Switch>  
       </div>
     )
-  }
+  
 }
 
 export default App;

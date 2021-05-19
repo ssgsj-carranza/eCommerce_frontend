@@ -5,8 +5,8 @@ class Seller extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user: '',
-            inventory:''
+            user: null,
+            inventory:null
         }
     }
     componentDidMount(){
@@ -21,9 +21,12 @@ class Seller extends Component {
             //pass in pros we will need later
         });
     }
+    
     render(){
         return(
-            <div></div>
+            <div>
+
+            </div>
         )
     }
 }

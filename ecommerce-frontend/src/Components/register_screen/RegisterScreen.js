@@ -4,17 +4,17 @@ import { Redirect } from 'react-router';
 import UserForm from '../forms/Form';
 import {registerUser} from '../services/Service'
 import LoginScreen from '../login_screen/LoginScreen'
-import { FormInput } from 'semantic-ui-react';
+import {Form, Label, Button, FormInput } from 'semantic-ui-react';
 import { RegistrationForm } from '../forms/RegisterUser'
 
 export const RegisterScreen = () => {
     const [newUser, setNewUser] = RegistrationForm({FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false})
     
     return (
-        <form>
-            <label>
+        <Form>
+            <Label>
                 First Name:
-                <input
+                <FormInput
                     type="text"
                     name="FirstName"
                     value={newUser.FirstName}
@@ -23,7 +23,7 @@ export const RegisterScreen = () => {
                 />
                 <br />
                 Last Name:
-                <input
+                <FormInput
                     type="text"
                     name="LastName"
                     value={newUser.Lastname}
@@ -32,7 +32,7 @@ export const RegisterScreen = () => {
                 />
                 <br />
                 Address:
-                <input
+                <FormInput
                     type="text"
                     name="Address"
                     value={newUser.Address}
@@ -41,7 +41,7 @@ export const RegisterScreen = () => {
                 />
                 <br />
                 Email:
-                <input
+                <FormInput
                     type="email"
                     name="Email"
                     value={newUser.Email}
@@ -50,24 +50,25 @@ export const RegisterScreen = () => {
                 />
                 <br />
                 Password:
-                <input
+                <FormInput
                     type="password"
                     name="Password"
                     value={newUser.Password}
                     onChange={setNewUser}
                 />
                 <br />
-                Is a Buyer account:
-                <input  
+                Register as a Buyer:
+                <FormInput 
                     type="checkbox"
+                    name="isBuyer"
                     value={newUser.isBuyer}
                     onChange={setNewUser}
                 />
                 <br />
-            </label>
-            <button onClick={async() => registerUser(newUser)}>
+            </Label>
+            <Button primary color="blue" onClick={async() => registerUser(newUser)}>
                 Register
-            </button>
-        </form>
+            </Button>
+        </Form>
     );
 }

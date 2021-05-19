@@ -15,7 +15,7 @@ class Seller extends Component {
     }
     render(){
         return(
-            <div>Hello</div>
+            <div></div>
         )
     }
 }

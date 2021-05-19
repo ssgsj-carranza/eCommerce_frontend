@@ -45,6 +45,6 @@ export async function getCurrentUser(){
 }
 
 export async function getInventory(){
-    let response = await axios.get(apiEndpoint + '/inventory');
+    const response = await axios.get(apiEndpoint + '/inventory');
     return(response.data)
 }

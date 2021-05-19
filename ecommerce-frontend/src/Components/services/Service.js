@@ -48,3 +48,7 @@ export async function getInventory(){
     let response = await axios.get(apiEndpoint + '/inventory');
     return(response.data)
 }
+
+export async function registerUser(registerObj){
+    axios.post(`${apiEndpoint}/user`, registerObj);
+}

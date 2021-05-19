@@ -17,7 +17,7 @@ export const RegisterScreen = () => {
                 <input
                     type="text"
                     name="FirstName"
-                    value="Firstname"
+                    value={newUser.FirstName}
                     onChange={setNewUser}
                     placeholder='Enter your first name'
                 />
@@ -26,7 +26,7 @@ export const RegisterScreen = () => {
                 <input
                     type="text"
                     name="LastName"
-                    value="Lastname"
+                    value={newUser.Lastname}
                     onChange={setNewUser}
                     placeholder='Enter your last name'
                 />
@@ -35,7 +35,7 @@ export const RegisterScreen = () => {
                 <input
                     type="text"
                     name="Address"
-                    value="Address"
+                    value={newUser.Address}
                     onChange={setNewUser}
                     placeholder='Enter your Address'
                 />
@@ -44,7 +44,7 @@ export const RegisterScreen = () => {
                 <input
                     type="email"
                     name="Email"
-                    value="Email"
+                    value={newUser.Email}
                     onChange={setNewUser}
                     placeholder='Enter your email'
                 />
@@ -53,14 +53,14 @@ export const RegisterScreen = () => {
                 <input
                     type="password"
                     name="Password"
-                    value="Password"
+                    value={newUser.Password}
                     onChange={setNewUser}
                 />
                 <br />
                 Is a Buyer account:
                 <input  
                     type="checkbox"
-                    value="isBuyer"
+                    value={newUser.isBuyer}
                     onChange={setNewUser}
                 />
                 <br />

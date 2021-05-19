@@ -5,6 +5,15 @@
     margin-right: auto;
     max-width: 1500px;
   }
+  .home-body {
+    background-image: url("https://images.unsplash.com/photo-1589985269102-ff38adf6f00d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1348&q=80");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  
+
   .home-image {
     width: 100%;
     z-index: -1;

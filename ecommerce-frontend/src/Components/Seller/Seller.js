@@ -10,8 +10,16 @@ class Seller extends Component {
         }
     }
     componentDidMount(){
-        let response = getInventory();
-        console.log(response);
+        let response = getInventory(); 
+        this.setState({ inventory: response}) 
+        console.log(this.state.inventory, 'Component did mount.');
+    }
+    mapProducts(){
+        const products = this.state.inventory.Product;
+        return products.map(product =>{
+            <Product />
+            //pass in pros we will need later
+        });
     }
     
     render(){

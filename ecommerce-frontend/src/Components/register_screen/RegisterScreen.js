@@ -1,30 +1,74 @@
 import axios from 'axios';
 import React, {useState} from 'react';
 import { Redirect } from 'react-router';
-import UserForm from '../form/Form';
+import UserForm from '../forms/Form';
 import {registerUser} from '../services/Service'
 import LoginScreen from '../login_screen/LoginScreen'
+import {Form, Label, Button, FormInput } from 'semantic-ui-react';
+import { RegistrationForm } from '../forms/RegisterUser'
 
-const RegisterScreen = () => {
-    // const [userInfo, setUserInfo] = useState('user');
-    // setUserInfo('user_change');
-    // console.log(userInfo);
-
-    const {loginValues, handleChange, handleSubmit} = UserForm(registerUser);
-    async function registerUser(registerObj){
-        registerUser(registerObj);
-        console.log(registerObj, 'RegisterUSerFunction');
-        return(
-            <Redirect  path='/login' component={LoginScreen} />);
-        
-    }
+export const RegisterScreen = () => {
+    const [newUser, setNewUser] = RegistrationForm({FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false})
     
     return (
-    <div>
-        <p>Hello World</p>
-        
-    </div>
-
+        <Form>
+            <Label>
+                First Name:
+                <FormInput
+                    type="text"
+                    name="FirstName"
+                    value={newUser.FirstName}
+                    onChange={setNewUser}
+                    placeholder='Enter your first name'
+                />
+                <br />
+                Last Name:
+                <FormInput
+                    type="text"
+                    name="LastName"
+                    value={newUser.Lastname}
+                    onChange={setNewUser}
+                    placeholder='Enter your last name'
+                />
+                <br />
+                Address:
+                <FormInput
+                    type="text"
+                    name="Address"
+                    value={newUser.Address}
+                    onChange={setNewUser}
+                    placeholder='Enter your Address'
+                />
+                <br />
+                Email:
+                <FormInput
+                    type="email"
+                    name="Email"
+                    value={newUser.Email}
+                    onChange={setNewUser}
+                    placeholder='Enter your email'
+                />
+                <br />
+                Password:
+                <FormInput
+                    type="password"
+                    name="Password"
+                    value={newUser.Password}
+                    onChange={setNewUser}
+                />
+                <br />
+                Register as a Buyer:
+                <FormInput 
+                    type="checkbox"
+                    name="isBuyer"
+                    value={newUser.isBuyer}
+                    onChange={setNewUser}
+                />
+                <br />
+            </Label>
+            <Button primary color="blue" onClick={async() => registerUser(newUser)}>
+                Register
+            </Button>
+        </Form>
     );
 }
-export default RegisterScreen;

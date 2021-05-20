@@ -48,7 +48,3 @@ export async function getInventory(){//Needs to pass in unique INventory based o
     let response = await axios.get(apiEndpoint + '/inventory');
     return(response.data)
 }
-
-export async function registerUser(registerObj){
-    axios.post(`${apiEndpoint}/user`, registerObj);
-}

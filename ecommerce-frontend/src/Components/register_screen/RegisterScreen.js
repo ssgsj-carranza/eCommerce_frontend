@@ -2,13 +2,19 @@ import axios from 'axios';
 import React, {useState} from 'react';
 import { Redirect } from 'react-router';
 import UserForm from '../forms/Form';
-import {registerUser} from '../services/Service'
+import {registerService} from '../services/Service'
 import LoginScreen from '../login_screen/LoginScreen'
 import {Form, Label, Button, FormInput } from 'semantic-ui-react';
 import { RegistrationForm } from '../forms/RegisterUser'
 
 export const RegisterScreen = () => {
     const [newUser, setNewUser] = RegistrationForm({FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false})
+    console.log(newUser, 'on Render')
+    const register = (input) =>{
+        console.log(input, 'register check')
+        registerService(input);
+        console.log(newUser, 'Test')
+    }
     
     return (
         <Form>
@@ -66,9 +72,8 @@ export const RegisterScreen = () => {
                 />
                 <br />
             </Label>
-            <Button primary color="blue" onClick={async() => registerUser(newUser)}>
-                Register
-            </Button>
+            <Button primary color="blue" onClick={async() => register(newUser)}>Register</Button>
+                
         </Form>
     );
 }

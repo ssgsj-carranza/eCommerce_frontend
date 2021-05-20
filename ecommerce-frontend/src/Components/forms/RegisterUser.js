@@ -8,7 +8,7 @@ export const RegistrationForm = initialValues => {
         e => {
             setValues({
                 ...values,
-                [e.target.name]: e.target.values
+                [e.target.name]: e.target.value
             });
         }
     ];

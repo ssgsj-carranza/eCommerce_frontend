@@ -4,6 +4,7 @@ import Header from '../header/Header';
 import '../header/Header.css';
 
 function Home() {
+    
     return (
         <div className="home-body">
             <Header />
@@ -19,4 +20,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Home;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { Redirect } from 'react-router';
 import { registerService } from '../services/Service'
 // import LoginScreen from '../login_screen/LoginScreen'
@@ -10,7 +10,11 @@ import { Redirect } from 'react-router';
 
 export const RegisterScreen = () => {
     const [newUser, setNewUser] = RegistrationForm({UserName:'', FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false});
-    
+
+    const handleCheckbox = () => {
+    return newUser.isBuyer=!newUser.isBuyer;
+    }
+
     const registerUser = (newUser) => {
         registerService(newUser);
         <Redirect path='/' /> 
@@ -77,7 +81,7 @@ export const RegisterScreen = () => {
                     type="checkbox"
                     name="isBuyer"
                     value={newUser.isBuyer}
-                    onChange={setNewUser}
+                    onChange={handleCheckbox}
                 />
                 <br />
             </Label>

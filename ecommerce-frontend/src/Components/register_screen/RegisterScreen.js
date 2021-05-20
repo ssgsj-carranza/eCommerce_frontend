@@ -1,8 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import {registerService} from '../services/Service'
-import React from 'react';
-import { registerService } from '../services/Service'
+import {registerService} from '../services/Service';
 import {Form, Label, Button, FormInput } from 'semantic-ui-react';
 import { RegistrationForm } from '../forms/RegisterUser';
 

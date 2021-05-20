@@ -44,8 +44,8 @@ export async function getCurrentUser(){
     }
 }
 
-export async function getInventory(user){
-    const response = await axios.get(`${apiEndpoint}/inventory/${user.id}`);
+export async function getInventory(){
+    const response = await axios.get(`${apiEndpoint}/inventory/`);
     return(response.data)
 }
 
@@ -62,3 +62,11 @@ export async function getInventory(user){
 //         throw(ex);
 //     }
 // }
+
+export async function postProduct(product){ 
+    const response = await axios.post(`${apiEndpoint}/products`, product);
+    if (response.status === 201){
+        console.log('Product Posted');
+        return response.data;
+    }
+}

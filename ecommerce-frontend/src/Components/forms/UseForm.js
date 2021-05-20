@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-export const RegistrationForm = initialValues => {
+export const UseForm = initialValues => {
     const [values, setValues] = useState(initialValues);
-    console.log(initialValues, 'registrationForm')
+    console.log(values, 'registrationForm');
     return [
         values,
         e => {

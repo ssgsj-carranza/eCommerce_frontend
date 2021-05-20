@@ -8,7 +8,11 @@ import { RegistrationForm } from '../forms/RegisterUser';
 
 export const RegisterScreen = () => {
     const [newUser, setNewUser] = RegistrationForm({UserName:'', FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false});
-    
+
+    const handleCheckbox = () => {
+    return newUser.isBuyer=!newUser.isBuyer;
+    }
+
     const registerUser = (newUser) => {
         registerService(newUser);
         <Redirect path='/' /> 
@@ -75,11 +79,11 @@ export const RegisterScreen = () => {
                     type="checkbox"
                     name="isBuyer"
                     value={newUser.isBuyer}
-                    onChange={setNewUser}
+                    onChange={handleCheckbox}
                 />
                 <br />
             </Label>
-            <Button primary color="blue" onClick={() => registerService(newUser)}>
+            <Button primary color="blue" onClick={() => registerUser(newUser)}>
                 Register
             </Button>
         </Form>

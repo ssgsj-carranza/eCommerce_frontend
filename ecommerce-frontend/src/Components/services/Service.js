@@ -44,11 +44,22 @@ export async function getCurrentUser(){
     }
 }
 
-export async function getInventory(){
-    const response = await axios.get(apiEndpoint + '/inventory');
+export async function getInventory(user){
+    const response = await axios.get(`${apiEndpoint}/inventory/${user.id}`);
     return(response.data)
 }
 
-export async function registerUser(registerObj){
-    axios.post(`${apiEndpoint}/user`, registerObj);
-}
+// export async function get(api){
+//     try {
+//         const response = await axios.get(`${apiEndpoint}/${api}`);
+//         if (response.status === 201){
+//             console.log('Grabbed Data Successfully');
+//             return response.data;
+//         }
+//     }
+//     catch(ex){
+//         console.log('Error');
+//         throw(ex);
+//     }
+
+// }

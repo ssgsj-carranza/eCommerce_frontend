@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useState} from 'react';
 import { Redirect } from 'react-router';
 import UserForm from '../forms/Form';
-import {registerUser} from '../services/Service'
+import {registerService} from '../services/Service'
 import LoginScreen from '../login_screen/LoginScreen'
 import {Form, Label, Button, FormInput } from 'semantic-ui-react';
 import { RegistrationForm } from '../forms/RegisterUser'
@@ -66,7 +66,7 @@ export const RegisterScreen = () => {
                 />
                 <br />
             </Label>
-            <Button primary color="blue" onClick={async() => registerUser(newUser)}>
+            <Button primary color="blue" onClick={() => registerService(newUser)}>
                 Register
             </Button>
         </Form>

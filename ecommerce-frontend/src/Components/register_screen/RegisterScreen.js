@@ -2,12 +2,12 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import {registerService} from '../services/Service';
 import {Form, Label, Button, FormInput } from 'semantic-ui-react';
-import { RegistrationForm } from '../forms/RegisterUser';
+import { UseForm } from '../forms/UseForm';
 
 // BOOL IS NOT WORKING :(
 
 export const RegisterScreen = () => {
-    const [newUser, setNewUser] = RegistrationForm({UserName:'', FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false});
+    const [newUser, setNewUser] = UseForm({UserName:'', FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false});
 
     const handleCheckbox = () => {
     return newUser.isBuyer=!newUser.isBuyer;

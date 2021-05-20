@@ -5,7 +5,6 @@ const apiEndpoint = 'https://localhost:44394/api';
 export async function registerService(user){
     try{
         const response = await axios.post(apiEndpoint + '/authentication', user);
-        console.log(user);
         if (response.status === 201){
             console.log('You are registered');
             return response.data;
@@ -45,7 +44,21 @@ export async function getCurrentUser(){
     }
 }
 
-export async function getInventory(){
-    const response = await axios.get(apiEndpoint + '/inventory');
+export async function getInventory(user){
+    const response = await axios.get(`${apiEndpoint}/inventory/${user.id}`);
     return(response.data)
 }
+
+// export async function get(api){
+//     try {
+//         const response = await axios.get(`${apiEndpoint}/${api}`);
+//         if (response.status === 201){
+//             console.log('Grabbed Data Successfully');
+//             return response.data;
+//         }
+//     }
+//     catch(ex){
+//         console.log('Error');
+//         throw(ex);
+//     }
+// }

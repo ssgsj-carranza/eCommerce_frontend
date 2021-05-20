@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-// import { Redirect } from 'react-router';
-import { registerService } from '../services/Service'
-// import LoginScreen from '../login_screen/LoginScreen'
-import {Form, Label, Button, FormInput } from 'semantic-ui-react';
-import { RegistrationForm } from '../forms/RegisterUser'
+import React from 'react';
 import { Redirect } from 'react-router';
+import {registerService} from '../services/Service';
+import {Form, Label, Button, FormInput } from 'semantic-ui-react';
+import { RegistrationForm } from '../forms/RegisterUser';
 
 // BOOL IS NOT WORKING :(
 
@@ -85,7 +83,7 @@ export const RegisterScreen = () => {
                 />
                 <br />
             </Label>
-            <Button primary color="blue" onClick={async() => registerUser(newUser)}>
+            <Button primary color="blue" onClick={() => registerUser(newUser)}>
                 Register
             </Button>
         </Form>

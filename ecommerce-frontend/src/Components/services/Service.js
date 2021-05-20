@@ -61,5 +61,4 @@ export async function getInventory(user){
 //         console.log('Error');
 //         throw(ex);
 //     }
-
 // }

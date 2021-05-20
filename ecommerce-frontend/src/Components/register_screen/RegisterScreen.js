@@ -1,18 +1,33 @@
-import axios from 'axios';
-import React, {useState} from 'react';
+import React from 'react';
 import { Redirect } from 'react-router';
-import UserForm from '../forms/Form';
 import {registerService} from '../services/Service'
-import LoginScreen from '../login_screen/LoginScreen'
+import React from 'react';
+import { registerService } from '../services/Service'
 import {Form, Label, Button, FormInput } from 'semantic-ui-react';
-import { RegistrationForm } from '../forms/RegisterUser'
+import { RegistrationForm } from '../forms/RegisterUser';
+
+// BOOL IS NOT WORKING :(
 
 export const RegisterScreen = () => {
-    const [newUser, setNewUser] = RegistrationForm({FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false})
+    const [newUser, setNewUser] = RegistrationForm({UserName:'', FirstName:'', LastName:'', Address:'', Email:'', Password:'', isBuyer:false});
     
+    const registerUser = (newUser) => {
+        registerService(newUser);
+        <Redirect path='/' /> 
+    }
+
     return (
         <Form>
             <Label>
+                Username:
+                <FormInput
+                    type="text"
+                    name="UserName"
+                    value={newUser.UserName}
+                    onChange={setNewUser}
+                    placeholder='Enter your Username'
+                />
+                <br />
                 First Name:
                 <FormInput
                     type="text"
@@ -49,7 +64,7 @@ export const RegisterScreen = () => {
                     placeholder='Enter your email'
                 />
                 <br />
-                Password:
+                Password (don't be lazy, it needs to be at least 8 chartacters):
                 <FormInput
                     type="password"
                     name="Password"

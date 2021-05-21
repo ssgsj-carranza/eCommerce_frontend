@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Profile = () => {
+const ReviewItem = (props) =>{
     return(
         <div>
-            Profile
+
         </div>
     )
 }
+export default ReviewItem;

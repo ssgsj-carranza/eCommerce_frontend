@@ -44,8 +44,8 @@ export async function getCurrentUser(){
     }
 }
 
-export async function getInventory(){
-    const response = await axios.get(`${apiEndpoint}/inventory/`);
+export async function getProduct(){
+    const response = await axios.get(`${apiEndpoint}/products/`);
     return(response.data)
 }
 
@@ -67,6 +67,14 @@ export async function postProduct(product){
     const response = await axios.post(`${apiEndpoint}/products`, product);
     if (response.status === 201){
         console.log('Product Posted');
+        return response.data;
+    }
+}
+
+export async function postReview(review){
+    const response = await axios.post(`${apiEndpoint}/review`, review);
+    if (response.status === 201){
+        console.log('Review Posted');
         return response.data;
     }
 }

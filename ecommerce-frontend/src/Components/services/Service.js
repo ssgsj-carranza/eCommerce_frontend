@@ -46,6 +46,17 @@ export async function getCurrentUser(){
 
 export async function getProduct(){
     const response = await axios.get(`${apiEndpoint}/products/`);
+    console.log(response.data)
+    return(response.data)
+}
+
+export async function getShoppingCart(){
+    const response = await axios.get(`${apiEndpoint}/shoppingcart/`);
+    return(response.data)
+}
+
+export async function getReviews(){
+    const response = await axios.get(`${apiEndpoint}/review/`);
     return(response.data)
 }
 
@@ -78,3 +89,12 @@ export async function postReview(review){
         return response.data;
     }
 }
+
+export async function postShoppingCart(shoppingcart){
+    const response = await axios.post(`${apiEndpoint}/shoppingcart`, shoppingcart);
+    if (response.status === 201){
+        console.log('Shopping cart Posted');
+        return response.data;
+    }
+}
+

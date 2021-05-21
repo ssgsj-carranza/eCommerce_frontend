@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Profile = () => {
+const ShoppingCartList = () =>{
     return(
         <div>
-            Profile
+
         </div>
     )
 }
+export default ShoppingCartList;

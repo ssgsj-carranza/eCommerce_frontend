@@ -4,20 +4,17 @@ import {Form, Label, Button, FormInput } from 'semantic-ui-react';
 import { UseForm } from '../forms/UseForm'
 
 
-
 const PostProduct = () => {
     const [newProduct, setNewProduct] = UseForm({
         Name: '',
         Price: 0,
         Description: '',
-        CategoryId: 1 //TODO Foreign key?
-
+        CategoryId: 1 //TODO Foreign key? Make a dropdown of available choices then when clicked modify to appropriate choice.
     });
 
 
     const addNewProduct = (newProduct) => {
         postProduct(newProduct);
-        // window.location= '/';
     }
 
     return (

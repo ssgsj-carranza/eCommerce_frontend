@@ -23,7 +23,7 @@ import {Form, Input, Label} from 'semantic-ui-react';
 //             <span className="header">Search</span>
 //         </label>
 //         <input
-//             onChange={props.handleChange}
+//             onChange={props.handleSubmit}
 //         />
 //         </div>
 //     )
@@ -32,15 +32,29 @@ import {Form, Input, Label} from 'semantic-ui-react';
 // export default SearchBar;
 
 class SearchBar extends Component {
-    state= {
-        userInput:''
-    };
+    constructor(props){
+        super(props);
+        this.state= {
+        userInput:'',
+        filteredProduct:[]
+        };
+
+    }
     onChange = (event) => {
         this.setState({userInput:event.target.value})
     }
     onSubmit = (event) => {
         event.preventDefault();
-        this.props.handleSubmit(this.state.userInput);
+        // this.props.handleSubmit(this.state.userInput);
+        console.log(this.props, "onsubmit")
+      this.setState({userInput: event.target.value});
+      const filteredProducts = this.props.products.filter(product => { 
+        if(product.name.toLowerCase().match(this.state.userInput) != null ||
+            product.category.name.toLowerCase().match(this.state.userInput) != null)
+            return true;
+      });
+      console.log(filteredProducts, "test");
+      this.setState({filteredProduct:filteredProducts})
     }
     render(){
         return(

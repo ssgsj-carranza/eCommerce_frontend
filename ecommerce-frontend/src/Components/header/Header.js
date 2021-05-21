@@ -4,13 +4,35 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import {Link} from 'react-router-dom';
 import SearchBar from '../search/SearchBar';
+import {getProduct} from '../services/Service';
+import axios from 'axios';
 
 class Header extends Component {
-    state = {
+  constructor(props){
+    super(props);
+    this.state = {
       searchTerm:'',
       user: true,
+      products:[],
+      filteredProduct: []
     }
-    
+    this.handleChange= this.handleChange.bind(this)
+    this.handleSubmit= this.handleSubmit.bind(this);
+  } 
+    componentDidMount(){
+      // let products = getProduct();
+      // this.setState({
+      //   products: products
+      // })
+      // console.log(this.state.products)
+      this.getProduct();
+    }
+      async getProduct(){
+        const response = await axios.get('https://localhost:44394/api/products/');
+        this.setState({
+          products: response.data
+        })
+      }
     handleChange = (event) => {
       this.setState({
         searchTerm: event.target.value
@@ -19,7 +41,14 @@ class Header extends Component {
     }
 
     handleSubmit = (event) => {
-      
+      console.log(this.props, "handlesubmit")
+      this.setState({searchTerm: event.target.value});
+      const filteredProducts = this.state.products.filter(product => {
+        return product.name.toLowerCase().includes(this.state.searchTerm) ||
+               product.categoryId.toLowerCase().includes(this.state.searchTerm)
+      });
+      console.log(filteredProducts, "test");
+      this.setState({filteredProduct:filteredProducts})
     }
   
     render(){
@@ -34,7 +63,7 @@ class Header extends Component {
       
         <div className="header__search">
          {/* <input className="header__searchInput" type="text" /> */}
-          <SearchBar />
+          <SearchBar handleChange={this.handleChange} products={this.state.products}/>
           <SearchIcon className="header__searchIcon" />
         </div>
 

@@ -1,6 +1,7 @@
 import {loginService} from '../services/Service';
 import UserForm from '../forms/Form';
 import {Segment, Button, Label, Form, FormInput} from 'semantic-ui-react';
+import './LoginScreen.css'
 
 const LoginScreen = () => {
     const {formValues, handleChange, handleSubmit} = UserForm(loginUser, {username:'', password:''});
@@ -18,7 +19,7 @@ const LoginScreen = () => {
     }
 
     return (
-        <Segment>
+        <Segment className='login'>
             <h1>Login</h1>
             <Form onSubmit={handleSubmit}>
             <Label>Username</Label>

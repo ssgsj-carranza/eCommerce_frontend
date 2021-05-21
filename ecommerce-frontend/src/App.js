@@ -9,12 +9,13 @@ import Home from './Components/landing_page/Home';
 import Header from './Components/header/Header';
 import './app.css';
 import Logout from './Components/logout/Logout'
+import Buyer from './Components/Buyer/Buyer';
 
 const App = () => {
     return(
       <div className="App">
         <Switch>
-          <Route path='/' exact component ={Home} />
+          <Route path='/' exact component ={Buyer} />
           <Route path='/login' component={LoginScreen} />
           <Route path='/logout' component={Logout} />
           <Route path='/register' component={RegisterScreen} />

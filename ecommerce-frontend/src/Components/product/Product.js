@@ -1,6 +1,6 @@
 import React from 'react';
 import {useStateValue} from '../contextAPI/StateProvider';
-import {segment, Button} from 'semantic-ui-react';
+import {segment, Button, Title} from 'semantic-ui-react';
 // import Icon from '@material-ui/icons';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box';
 //ADD TO SHOOPINGCART corresponds to the object action in reducer, which updates the state with the new object that is added to basket
 function Product({Name, Price, Description, Category}) {
     const [{}, dispatch] = useStateValue();
+    
     const addToShoppingcart = () => {
         dispatch({
             type: "ADD_TO_SHOPPINGCART",
@@ -21,10 +22,13 @@ function Product({Name, Price, Description, Category}) {
             }
         })
     };
+    let value = '';
+    let setValue = () =>{};
+    let title = 'hi';
     return (
         <div className="product">
             <div className="product-info">
-                <Title>{title}</Title>
+                {/* <Title>{title}</Title> */}
                 <p className="product-price">
                     <small>$</small>
                     <strong>{price}</strong>

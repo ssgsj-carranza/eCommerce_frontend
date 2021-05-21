@@ -18,8 +18,8 @@ class Header extends Component {
       console.log(this.state.searchTerm);
     }
 
-    onSubmit= (event) =>{
-
+    handleSubmit = (event) => {
+      
     }
   
     render(){

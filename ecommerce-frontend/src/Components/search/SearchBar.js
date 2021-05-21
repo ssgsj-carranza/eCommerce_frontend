@@ -40,7 +40,7 @@ class SearchBar extends Component {
     }
     onSubmit = (event) => {
         event.preventDefault();
-        this.props.onSubmit(this.state.userInput);
+        this.props.handleSubmit(this.state.userInput);
     }
     render(){
         return(

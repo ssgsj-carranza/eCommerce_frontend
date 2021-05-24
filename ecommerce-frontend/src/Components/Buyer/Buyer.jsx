@@ -32,7 +32,7 @@ class Buyer extends Component {
                     username: 'Johanness',
                 },
                 product:{
-                    id: 1,
+                    id: 12,
                     name: 'Bananas butter',
                     price: 150,
                     category: {
@@ -42,13 +42,13 @@ class Buyer extends Component {
                 },
                 quantity: 3
             },{
-                id: 1,
+                id: 13,
                 userId: this.props.user.id,
                 user:{
                     username: 'Johanness',
                 },
                 product:{
-                    id: 1,
+                    id: 13,
                     name: 'Bananas butter',
                     price: 150,
                     category: {

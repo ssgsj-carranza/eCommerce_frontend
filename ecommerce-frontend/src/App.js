@@ -10,7 +10,7 @@ import Logout from './Components/logout/Logout'
 
 const App = () => {
     return(
-      <div className="App">
+      <div className="App bg">
         <Switch>
           <Route path='/' exact component ={Home} />
           <Route path='/login' component={LoginScreen} />

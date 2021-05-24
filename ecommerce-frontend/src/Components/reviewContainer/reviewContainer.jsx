@@ -16,7 +16,7 @@ const ReviewContainer = (props) => {
     //map reviews When mapping each product.
     return(
         <div>
-            <PostReview />
+            {/* <PostReview user={props.user} product={props.product}/> */}
             <ReviewList reviews={mappedReviews}/>
             {/* Maybe don't need review list to have this prop. */}
         </div>

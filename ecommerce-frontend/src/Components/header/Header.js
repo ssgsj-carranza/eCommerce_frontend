@@ -15,7 +15,24 @@ class Header extends Component {
     this.state = {
       searchTerm:'',
       user: true,
-      products:[],
+      products:[{
+        id: 1,
+        name: 'Bananas butter',
+        price: 150,
+        category: {
+            name: 'Fruit Butters'
+        },
+        description: 'A fruity cholesterol sensation',
+    },
+      {
+        id: 2,
+        name: 'Bananas butter',
+        price: 150,
+        category: {
+            name: 'Fruit Butters'
+        },
+        description: 'A fruity cholesterol sensation',
+    }],
       filteredProduct: [],
       mappedProduct:[]
     }
@@ -26,20 +43,19 @@ class Header extends Component {
       this.getProduct();
     }
       async getProduct(){
-        const response = await axios.get('https://localhost:44394/api/products/');
-        this.setState({
-          products: response.data
-        })
-        let mapped = this.mapProduct(this.state.products)
-        this.setState({mappedProduct: mapped})
-        console.log(response.data)
+        // const response = await axios.get('https://localhost:44394/api/products/');
+        // this.setState({
+        //   products: response.data
+        // });
+        // let mapped = this.mapProduct(this.state.products)
+        // this.setState({mappedProduct: mapped})
       }
 
-    mapProduct(entry){
-      return entry.map(product =>{
-        return <ProductItem key={product.id} product={product}/>
-      });
-    }
+    // mapProduct(entry){
+    //   return entry.map(product =>{
+    //     return <ProductItem key={product.id} product={product}/>
+    //   });
+    // }
     handleChange = (event) => {
       this.setState({
         searchTerm: event.target.value
@@ -80,13 +96,15 @@ class Header extends Component {
               <span className="header__optionLineOne">Hello Guest</span>
               {/* <span className="header__optionLineTwo">Sign In</span> */}
               
-                <React.Fragment>
+                <React.Fragment >
+                  <ul>
                   <li>
                     <Link to='/register'>Register</Link>
                   </li>
                   <li>
                     <Link to='/login'>Login</Link>
                   </li>
+                  </ul>
                 </React.Fragment>
             </div>
             <div className="header__optionBasket">

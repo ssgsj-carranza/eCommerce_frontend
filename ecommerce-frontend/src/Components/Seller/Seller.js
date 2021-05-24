@@ -5,6 +5,7 @@ import {getProducts} from '../services/Service';
 import ProductItem from '../Product_Item/ProductItem';  
 import PostProduct from '../postProduct/postProduct';
 import ProductContainer from '../productContainer/productContainer'
+import Footer from '../Footer/footer';
 
 class Seller extends Component {
     constructor(props){
@@ -12,26 +13,39 @@ class Seller extends Component {
         this.state = {
             products: [{
                 id: 1,
-                Name: 'Bananas butter',
-                Price: 150,
-                Category: 'Fruit Butters',
-                Description: 'A fruity cholesterol sensation'
+                name: 'Bananas butter',
+                price: 150,
+                category: {
+                    name: 'Fruit Butters'
+                },
+                description: 'A fruity cholesterol sensation',
+            },
+              {
+                id: 2,
+                name: 'Bananas butter',
+                price: 150,
+                category: {
+                    name: 'Fruit Butters'
+                },
+                description: 'A fruity cholesterol sensation',
             }],
-            mappedProducts: null,
+            mappedProducts: [],
             reviews: [{
-                Rating: 0,
-                Text: '',
-                UserID:1,
-                User:{
+                rating: 0,
+                text: '',
+                userID: this.props.user.id,
+                user: {
                     username: 'JayJ'
                 },
-                ProductId: 1,
-                Product:{
+                productId: 1,
+                product:{
                     id: 1,
-                    Name: 'Bananas butter',
-                    Price: 150,
-                    Category: 'Fruit Butters',
-                    Description: 'A fruity cholesterol sensation'
+                    name: 'Bananas butter',
+                    price: 150,
+                    category: {
+                        name: 'Fruit Butters'
+                    },
+                    description: 'A fruity cholesterol sensation'
                 }
             }],
         }
@@ -41,30 +55,28 @@ class Seller extends Component {
         //axios.get(reviews)
         let renderedProducts = this.mapProducts();
         this.setState({mappedProducts: renderedProducts});
+        console.log(this.state.mappedProducts, 'mappedproducts')
     }
     mapProducts(){
-        const products = this.state.products;
-        
+        let products = this.state.products;
+        console.log('ive ran')
         return products.map(product =>{
             let productReviews = this.state.reviews.filter(review =>{
-                return review.ProductId === product.id
-            })//DO NOT DO THIS EVER AGAIN IN THE FUTURE MAKE A POST REQUES TO API TO QUERY.
+                return review.productId === product.id
+            });
             return(
-            <ProductItem product={product} key={product.id} reviews={productReviews}/>
-            )
+            <ProductItem product={product} key={product.id} reviews={productReviews} user={this.props.user}/>
+            );
         });
     }
     
-    render(){//FIXME Table not rendering properly
+    render(){
         return(
             <div>
                 <Header />
-                <ProductContainer products={this.state.mappedProducts}/>
-                {/* <Table> 
-                    {this.mapProducts()}
-                </Table> */}
+                <ProductContainer mapProduct={this.state.mappedProducts} />
                 <PostProduct />
-
+                <Footer/>
                 
             </div>
         )

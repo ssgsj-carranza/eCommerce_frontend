@@ -6,14 +6,17 @@ const ShoppingCartItem = (props) =>{
         <div>
             <Card>
             <Card.Content>
-                <Card.Header textAlign='center'>
+                <Card.Meta>
                     {props.shoppingCart.product.name}
-                </Card.Header>
-                <Card.Meta>Total: {props.shoppingCart.quantity}</Card.Meta>
+                    <div>
+                        Total: {props.shoppingCart.quantity}
+                    </div>
+                    
+                </Card.Meta>
                 <Card.Description>
                     {props.shoppingCart.product.category.name}
                     <div>
-                    Price: {props.shoppingCart.product.price * props.shoppingCart.quantity}
+                    Price: ${props.shoppingCart.product.price * props.shoppingCart.quantity}
                     </div>
                 </Card.Description>
             </Card.Content>

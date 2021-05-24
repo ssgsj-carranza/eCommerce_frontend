@@ -12,7 +12,7 @@ const PostReview = (props) =>{
     });
 
 
-    const addNewReview = (newReview) => {
+    const addNewReview = () => {
         postReview(newReview);
     }
 
@@ -23,7 +23,7 @@ const PostReview = (props) =>{
                 Message:
                 <FormInput
                     type="text"
-                    name="Name"
+                    name="text"
                     value={newReview.text}
                     onChange={setNewReview}
                     placeholder='Leave a review'
@@ -32,13 +32,13 @@ const PostReview = (props) =>{
                 Rating:
                 <FormInput
                     type="number"
-                    name="Rating"
+                    name="rating"
                     value={newReview.rating}
                     onChange={setNewReview}
                 />
 
             </Label>
-            <Button primary color="blue" onClick={() => addNewReview(newReview)}>
+            <Button primary color="blue" onClick={() => addNewReview()}>
                 Add Review
             </Button>
         </Form>

@@ -8,9 +8,8 @@ import Buyer from '../Buyer/Buyer';
 import UnknownUser from '../unknownUserHome/unknownUser'
 const Home = () => {
     let getUser = getCurrentUser();
-    getUser = Promise.resolve
     console.log(getUser, 'Goteem');
-    const [user,setUser] = useState(getUser);
+    const [user,setUser] = useState();
     console.log(user, 'StatefulVariable')//AUTHENTICATION DOES NOT WORK BECAUSE IT IS A PROMISE. USE BETTER CONDITIONA:
     if(user){//If they are logged in
         if(user.isBuyer){//If they are a buyer

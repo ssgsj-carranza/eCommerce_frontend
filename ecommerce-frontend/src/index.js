@@ -9,9 +9,7 @@ import StateProvider from './Components/contextAPI/StateProvider';
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <StateProvider initialState={initialState} reducer={reducer}>
       <App />
-    </StateProvider>
     </React.StrictMode>
   </Router>,
   document.getElementById('root')

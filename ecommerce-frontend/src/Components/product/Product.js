@@ -22,13 +22,10 @@ function Product({Name, Price, Description, Category}) {
             }
         })
     };
-    let value = '';
-    let setValue = () =>{};
-    let title = 'hi';
     return (
         <div className="product">
             <div className="product-info">
-                {/* <Title>{title}</Title> */}
+                <Title>{title}</Title>
                 <p className="product-price">
                     <small>$</small>
                     <strong>{price}</strong>

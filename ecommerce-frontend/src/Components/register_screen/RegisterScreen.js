@@ -15,7 +15,7 @@ export const RegisterScreen = () => {
 
     const registerUser = (newUser) => {
         registerService(newUser);
-        <Redirect path='/' /> 
+        window.location = '/';
     }
 
     return (

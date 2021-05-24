@@ -8,10 +8,10 @@ const ProductItem = (props) => {
 
     return(//FIXME FORMAT TABLE Format individual product item for Seller to see.
         <div>
-            <td>{props.product.Name}</td> 
-            <td>{props.product.Price} </td>
-            <td>{props.product.Description} </td>
-            <td>{props.product.Category}</td>
+            <div>{props.product.Name}</div> 
+            <div>{props.product.Price} </div>
+            <div>{props.product.Description} </div>
+            <div>{props.product.Category}</div>
             <ReviewContainer reviews={props.reviews}/>
         </div>
     )

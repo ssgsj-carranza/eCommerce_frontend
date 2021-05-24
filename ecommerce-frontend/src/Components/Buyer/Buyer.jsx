@@ -62,8 +62,8 @@ import ShoppingCartItem from '../shoppingCartItem/shoppingcartItem';
 //     }
 // }
 
-const Buyer =async () => {
-    let response = await getUserShoppingCart();
+const Buyer = () => {
+    let response = getUserShoppingCart();
     console.log(response.data);
 
 return (

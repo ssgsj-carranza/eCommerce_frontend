@@ -5,10 +5,10 @@ import {Form, Label, FormInput, Button} from 'semantic-ui-react';
 
 const PostReview = (props) =>{
     const [newReview, setNewReview] = UseForm({
-        Text: '',
-        Rating: 0,
-        UserId: props.user.Id,
-        ProductId: props.product.Id
+        text: '',
+        rating: 0,
+        userId: props.user.id,
+        productId: props.product.id
     });
 
 
@@ -24,7 +24,7 @@ const PostReview = (props) =>{
                 <FormInput
                     type="text"
                     name="Name"
-                    value={newReview.Text}
+                    value={newReview.text}
                     onChange={setNewReview}
                     placeholder='Leave a review'
                 />
@@ -33,7 +33,7 @@ const PostReview = (props) =>{
                 <FormInput
                     type="number"
                     name="Rating"
-                    value={newReview.Rating}
+                    value={newReview.rating}
                     onChange={setNewReview}
                 />
 

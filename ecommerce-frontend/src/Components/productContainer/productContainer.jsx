@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductContainer = (props) =>{
-    console.log(props.mapProduct, "mapProduct")
+    
     return(
         <table className='table'>
             <thead>

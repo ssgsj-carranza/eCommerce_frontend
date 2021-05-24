@@ -29,8 +29,8 @@ class Header extends Component {
       // })
       // console.log(this.state.products)
       this.getProduct();
-      let mapped = this.mapProduct()
-      this.setState({mappedProduct: mapped})
+      // let mapped = this.mapProduct()
+      // this.setState({mappedProduct: mapped})
       
     }
       async getProduct(){
@@ -38,16 +38,20 @@ class Header extends Component {
         this.setState({
           products: response.data
         })
-        console.log(this.state.products, 'getProduct')
+        // let mapped = this.mapProduct()
+        // this.setState({mappedProduct: mapped})
+        console.log(response.data)
       }
 
-    mapProduct(){
-      console.log(this.state.products)
-      let displayeProducts = this.state.products.map(product =>
-        {return <ProductItem key={product.id}product={product}/>}
+    mapProduct(entry){
+      return entry.map(product =>
+         <ProductItem 
+            key={product.id}
+            product={product}
+        />
       );
-      console.log(displayeProducts, "displayedProducts")
-      return (displayeProducts)
+      // console.log(displayedProducts, "displayedProducts")
+      // return (displayedProducts)
     }
     handleChange = (event) => {
       this.setState({
@@ -102,7 +106,7 @@ class Header extends Component {
               <ShoppingBasketIcon />
               <span className="header__optionLineTwo header__basketCount">0</span>
           </div>
-              <ProductContainer mapProduct={this.state.mappedProduct} />
+              <ProductContainer mapProduct={() => this.mapProduct(this.state.products)} />
         </div>
       </div>
     );

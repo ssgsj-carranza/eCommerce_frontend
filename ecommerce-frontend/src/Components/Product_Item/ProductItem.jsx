@@ -5,16 +5,18 @@ const ProductItem = (props) => {
     
     
 
-console.log(props.product.Name, "props.product.Name")
+console.log(props.product.name, "props.product.Name")
     return(//FIXME FORMAT TABLE Format individual product item for Seller to see.
         <div>
-                    hello
-                    {props.product.Name}
-                    {props.product.Price} 
-                    {props.product.Description} 
-                    {props.product.Category}
-                    {/* <ReviewContainer reviews={props.reviews}/> */}
-          
+            <tbody>
+              <tr>    
+                <td>{props.product.name}</td>
+                <td>{props.product.price}</td> 
+                <td>{props.product.description}</td> 
+                <td>{props.product.category}</td>
+                   
+                </tr>  
+            </tbody>
         </div>
     )
 }

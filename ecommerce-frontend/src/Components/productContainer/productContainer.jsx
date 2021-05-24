@@ -5,7 +5,7 @@ const ProductContainer = (props) =>{
     console.log(props.mapProduct, "mapProduct")
     return(
         <div>
-            <ProductList/>
+            <ProductList mappedProduct = {props.mapProduct}/>
         </div>
     )
 }

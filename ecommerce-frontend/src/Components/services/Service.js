@@ -47,11 +47,7 @@ export async function getCurrentUser(){
 export async function getUserShoppingCart(){
     try{
         let jwt = localStorage.getItem('token');
-<<<<<<< HEAD
         let shoppingCartUser = getCurrentUser();
-=======
-        let shoppingCartUser = (getCurrentUser());
->>>>>>> 14dde00e4f0d1895eeae0c60145f47a600be2e4d
         let response = await axios.get(apiEndpoint + '/ShoppingCart',{headers: {Authorization: 'Bearer ' + jwt}}, shoppingCartUser)
         console.log(response.data);
         
@@ -67,8 +63,8 @@ export async function getUserShoppingCart(){
 
 export async function getProduct(){
     const response = await axios.get(`${apiEndpoint}/products/`);
-    console.log(response.data)
-    return(response.data)
+    console.log(response.data);
+    return(response.data);
 }
 
 export async function getShoppingCart(){

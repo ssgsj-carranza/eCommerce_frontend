@@ -38,17 +38,13 @@ class Header extends Component {
         this.setState({
           products: response.data
         })
-        console.log(response.data)
+        console.log(this.state.products, 'getProduct')
       }
 
     mapProduct(){
-      console.log("hello")
-      
+      console.log(this.state.products)
       let displayeProducts = this.state.products.map(product =>
-        {return (<ProductItem 
-            key={product.id}
-            product={product}
-        />)}
+        {return <ProductItem key={product.id}product={product}/>}
       );
       console.log(displayeProducts, "displayedProducts")
       return (displayeProducts)

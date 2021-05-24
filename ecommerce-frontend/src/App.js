@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import 'semantic-ui-css/semantic.min.css';
-// import Seller from './Components/Seller/Seller';
 import LoginScreen from './Components/login_screen/LoginScreen';
 import { RegisterScreen } from './Components/register_screen/RegisterScreen';
 import 'semantic-ui-css/semantic.min.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Components/landing_page/Home';
-import Header from './Components/header/Header';
+import { Route, Switch } from 'react-router-dom';
+import Home from './Components/landing_page/Home.jsx';
 import './app.css';
 import Logout from './Components/logout/Logout'
-import Buyer from './Components/Buyer/Buyer';
 
 const App = () => {
     return(

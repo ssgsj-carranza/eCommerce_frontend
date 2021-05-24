@@ -1,74 +1,110 @@
 import React, {Component} from 'react';
 import Footer from '../Footer/footer';
 import Header from '../header/Header';
-import { getUserShoppingCart } from '../services/Service';
+// import { getUserShoppingCart } from '../services/Service';
 import ShoppingCartContainer from '../shoppingCartContainer/shoppingCartContainer';
 import ShoppingCartItem from '../shoppingCartItem/shoppingcartItem';
 
-// class Buyer extends Component {
-//     constructor(props){
-//         super(props);
-//         this.state = {
-//             shoppingCart: [{
-//                 id: 1,
-//                 User:{
-//                     Username: 'Johanness'
-//                 },
-//                 Product:{
-//                     id: 1,
-//                     Name: 'Bananas butter',
-//                     Price: 150,
-//                     Category: 'Fruit Butters',
-//                     Description: 'A fruity cholesterol sensation',
-//                 },
-//                 Quantity: 3
-//             }],
-//             renderedShoppingCarts: null
-//         }
-//     }
+class Buyer extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            shoppingCart: [{
+                id: 1,
+                userId: this.props.user.id,
+                user:{
+                    username: 'Johanness',
+                },
+                product:{
+                    id: 1,
+                    name: 'Bananas butter',
+                    price: 150,
+                    category: {
+                        name: 'Fruit Butters'
+                    },
+                    description: 'A fruity cholesterol sensation',
+                },
+                quantity: 3
+            },{
+                id: 1,
+                userId: this.props.user.id,
+                user:{
+                    username: 'Johanness',
+                },
+                product:{
+                    id: 1,
+                    name: 'Bananas butter',
+                    price: 150,
+                    category: {
+                        name: 'Fruit Butters'
+                    },
+                    description: 'A fruity cholesterol sensation',
+                },
+                quantity: 3
+            },{
+                id: 1,
+                userId: this.props.user.id,
+                user:{
+                    username: 'Johanness',
+                },
+                product:{
+                    id: 1,
+                    name: 'Bananas butter',
+                    price: 150,
+                    category: {
+                        name: 'Fruit Butters'
+                    },
+                    description: 'A fruity cholesterol sensation',
+                },
+                quantity: 3
+            }],
+            renderedShoppingCarts: null
+        }
+    }
 
-//     componentDidMount() {
-//         //services get shopping cart items axios.get(Shoppingcarts)
-//         const mappedShoppingCarts = this.mapShoppingCarts();
-//         this.setState({renderedShoppingCarts: mappedShoppingCarts})
-//     }
+    componentDidMount() {
+        //services get shopping cart items axios.get(Shoppingcarts)
+        const mappedShoppingCarts = this.mapShoppingCarts();
+        console.log(mappedShoppingCarts, 'mapped')
+        this.setState({renderedShoppingCarts: mappedShoppingCarts})
+    }
 
-//     filterShoppingCarts() {
-//         let temp = this.state.shoppingCart.filter(shoppingCart =>{
-//             return shoppingCart.UserId === this.props.user.id
-//         })
-//         return temp;
-//     }
+    filterShoppingCarts() {
+        let temp = this.state.shoppingCart.filter(shoppingCart =>{
+            return shoppingCart.userId === this.props.user.id
+        })
+        return temp;
+    }
 
-//     mapShoppingCarts() {
-//         const shoppingCarts = this.filterShoppingCarts();
-        
-//         return shoppingCarts.map(shoppingCart =>{
-//             <ShoppingCartItem shoppingCart={shoppingCart} key={shoppingCart.id}/>
-//         });
-//     }
+    mapShoppingCarts() {
+        const shoppingCarts = this.filterShoppingCarts();
+        console.log(shoppingCarts, 'maps')
+        return shoppingCarts.map(shoppingCart =>{
+            return <ShoppingCartItem shoppingCart={shoppingCart} key={shoppingCart.id}/>
+        });
+    }
     
 
 
 
-//     render(){
-//         return(
-//             <div>
-//                 <Header />
-//                 <ShoppingCartContainer shoppingCarts={this.state.renderedShoppingCarts}/>
-//                 <Footer />
-//             </div>
-//         )
-//     }
-// }
-
-const Buyer = () => {
-    let response = getUserShoppingCart();
-    console.log(response.data);
-
-return (
-    <p>hello</p>
-);
+    render(){
+        return(
+            <div>
+                <Header />
+                <ShoppingCartContainer shoppingCarts={this.state.renderedShoppingCarts}/>
+                <Footer />
+            </div>
+        )
+    }
 }
+
+// const Buyer = () => {
+//     let response = getUserShoppingCart();
+//     console.log(response.data);
+
+// return (
+//     <p>hello</p>
+// );
+// }
 
 export default Buyer;

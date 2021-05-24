@@ -23,35 +23,22 @@ class Header extends Component {
     this.handleSubmit= this.handleSubmit.bind(this);
   } 
     componentDidMount(){
-      // let products = getProduct();
-      // this.setState({
-      //   products: products
-      // })
-      // console.log(this.state.products)
       this.getProduct();
-      // let mapped = this.mapProduct()
-      // this.setState({mappedProduct: mapped})
-      
     }
       async getProduct(){
         const response = await axios.get('https://localhost:44394/api/products/');
         this.setState({
           products: response.data
         })
-        // let mapped = this.mapProduct()
-        // this.setState({mappedProduct: mapped})
+        let mapped = this.mapProduct(this.state.products)
+        this.setState({mappedProduct: mapped})
         console.log(response.data)
       }
 
     mapProduct(entry){
-      return entry.map(product =>
-         <ProductItem 
-            key={product.id}
-            product={product}
-        />
-      );
-      // console.log(displayedProducts, "displayedProducts")
-      // return (displayedProducts)
+      return entry.map(product =>{
+        return <ProductItem key={product.id} product={product}/>
+      });
     }
     handleChange = (event) => {
       this.setState({
@@ -93,7 +80,7 @@ class Header extends Component {
               <span className="header__optionLineOne">Hello Guest</span>
               {/* <span className="header__optionLineTwo">Sign In</span> */}
               
-                <React.Fragment className='header__optionLineTwo'>
+                <React.Fragment>
                   <li>
                     <Link to='/register'>Register</Link>
                   </li>
@@ -106,7 +93,7 @@ class Header extends Component {
               <ShoppingBasketIcon />
               <span className="header__optionLineTwo header__basketCount">0</span>
           </div>
-              <ProductContainer mapProduct={() => this.mapProduct(this.state.products)} />
+              <ProductContainer mapProduct={this.state.mappedProduct} />
         </div>
       </div>
     );

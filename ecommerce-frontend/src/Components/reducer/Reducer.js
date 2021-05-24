@@ -26,7 +26,6 @@ const reducer = (state, action) => {
             let newShoppingCart  = [...state.shoppingcart];
             const index = state.shoppingcart.findIndex((cartItem) => cartItem.id === action.id);
             if(index >= 0) {
-                //item exist in the basket, remove it
                 newShoppingCart.splice(index, 1) 
             } else {
                 console.warn (

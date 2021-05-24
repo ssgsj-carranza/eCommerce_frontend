@@ -1,10 +1,20 @@
 import React from 'react';
 
-const ProductContainer = () =>{
+const ProductContainer = (props) =>{
+    console.log(props.mapProduct, "mapProduct")
     return(
-        <div>
-
-        </div>
-    )
+        <table className='table'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                
+                </tr>
+            </thead>
+            {props.mapProduct}
+        </table>
+    );
 }
 export default ProductContainer;

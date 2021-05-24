@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom';
 import SearchBar from '../search/SearchBar';
 import {getProduct} from '../services/Service';
 import axios from 'axios';
+import ProductItem from '../Product_Item/ProductItem'
+import ProductContainer from "../productContainer/productContainer";
 
 class Header extends Component {
   constructor(props){
@@ -14,7 +16,8 @@ class Header extends Component {
       searchTerm:'',
       user: true,
       products:[],
-      filteredProduct: []
+      filteredProduct: [],
+      mappedProduct:[]
     }
     this.handleChange= this.handleChange.bind(this)
     this.handleSubmit= this.handleSubmit.bind(this);
@@ -26,13 +29,30 @@ class Header extends Component {
       // })
       // console.log(this.state.products)
       this.getProduct();
+      let mapped = this.mapProduct()
+      this.setState({mappedProduct: mapped})
+      
     }
       async getProduct(){
         const response = await axios.get('https://localhost:44394/api/products/');
         this.setState({
           products: response.data
         })
+        console.log(response.data)
       }
+
+    mapProduct(){
+      console.log("hello")
+      
+      let displayeProducts = this.state.products.map(product =>
+        {return (<ProductItem 
+            key={product.id}
+            product={product}
+        />)}
+      );
+      console.log(displayeProducts, "displayedProducts")
+      return (displayeProducts)
+    }
     handleChange = (event) => {
       this.setState({
         searchTerm: event.target.value
@@ -86,6 +106,7 @@ class Header extends Component {
               <ShoppingBasketIcon />
               <span className="header__optionLineTwo header__basketCount">0</span>
           </div>
+              <ProductContainer mapProduct={this.state.mappedProduct} />
         </div>
       </div>
     );
